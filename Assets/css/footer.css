@@ -1,0 +1,168 @@
+/** @format */
+
+#upper {
+  text-align: center;
+  padding: 150px 0;
+  background: #3369f6;
+}
+
+/* angled div */
+.slanted-div {
+  position: relative;
+  padding: 30px 0;
+  background: #0e3c6e;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* where the magic happens */
+.slanted-div:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  bottom: 0;
+  transform-origin: right bottom;
+  transform: skewY(12deg);
+}
+
+/* displays the content inside, as these settings in the parent breaks the effect */
+.slanted-div div {
+  color: white;
+}
+.slanted-div h4 {
+  color: white;
+  font-weight: 600;
+  margin: 30px 15px;
+}
+.slanted-div h5 {
+  font-weight: 600;
+  margin: 30px 15px;
+}
+.slanted-div p {
+  color: white;
+  margin-left: 20px;
+  margin-right: 70px;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 500;
+}
+.slanted-div a {
+  text-decoration: none;
+}
+
+.slanted-div hr {
+  color: white;
+  margin: 3.5rem auto 0;
+  border-top: 2px solid;
+  opacity: 1;
+}
+
+footer {
+  color: #999;
+  text-align: center;
+  padding: 100px 0 50px 0;
+  background: #222;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.slanted-div img {
+  margin-top: -6rem;
+  background: white;
+  padding: 20px;
+  height: 250px;
+  width: 250px;
+  border-radius: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  .slanted-div .row {
+    text-align: center !important;
+  }
+  .slanted-div img {
+    margin-top: -1rem;
+  }
+  .slanted-div p {
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .slanted-div .col-lg-3.col-12 {
+    margin-top: 30px;
+  }
+
+  header {
+    padding: 30px;
+  }
+
+  .slanted-div {
+    padding: 100px 0;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+img.so {
+  margin-top: 0rem;
+  background: transparent;
+  padding: 0px;
+  height: 100px;
+  width: auto;
+  border-radius: 0px;
+  margin-bottom: 1px;
+}
+
+#social {
+  background-color: white;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  margin-top: 40px;
+}
+
+#social span {
+  color: #0e3c6e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: -15px;
+  /* border-bottom: 5px solid #0077B5;
+    border-radius: 2px;
+    padding: 0 0 1px; */
+}
+img.underline {
+  height: 47px;
+  width: auto;
+  margin-left: 26px;
+  margin-top: -28px;
+}
+
+p.so1 {
+  color: #345d8a;
+  /* color: white; */
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: 16px;
+  line-height: 25px;
+  margin-bottom: -6px;
+  font-weight: 500;
+}
+
+#social hr {
+  color: #0077b5;
+  border-top: 5px solid;
+  height: 18px;
+  margin-top: -10px;
+  width: 65%;
+  margin-left: 47px;
+  margin-bottom: 12px;
+}
