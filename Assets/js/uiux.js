@@ -118,7 +118,7 @@ const ShowWarn = (message) => {
 const thankYou = () => {
   modalsBody.style.backgroundColor = "#fff";
   modalsBody.innerHTML =
-    '<div class="text-center "><img src="./assets/gif/113967-thank-you.gif" class="img-fluid" > <p class="fixed-bottom position-absolute" style="bottom:50px; font-weight:bold;padding:10px">We are soo glad that you connected with us We look forward to being a part of your career Our team will contact you soon for more details.</p></div>';
+    '<div class="text-center "><img src="../img/thankyou.gif" class="img-fluid" > <p class="fixed-bottom position-absolute" style="bottom:50px; font-weight:bold;padding:10px">We are soo glad that you connected with us We look forward to being a part of your career Our team will contact you soon for more details.</p></div>';
 };
 
 // SHEET SCRIPT URL AND FORM DATA COLLECTION
@@ -129,13 +129,11 @@ const form = document.forms["callBack"];
 openModals.addEventListener("click", () => {
   $("#exampleModal").modal("show");
   canDownload = true;
-  //console.log(buttonClick)
 });
 
 openModals2.addEventListener("click", () => {
   $("#exampleModal").modal("show");
   canDownload = true;
-  //console.log(buttonClick)
 });
 
 // LEAD FORM EVENT LISTNER HERE

@@ -51,7 +51,14 @@ p {
   margin: 0px;
 }
 
-#join_btn1 {
+.join_btn1 {
+  background-color: #0e3c6e;
+  color: white;
+  border-radius: 100px;
+  font-size: 20px;
+}
+
+.join_btn1:hover {
   background-color: #0e3c6e;
   color: white;
   border-radius: 100px;
@@ -115,6 +122,22 @@ p {
   margin-top: 10px;
 }
 
+.fo-text {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.408px;
+  padding-bottom: 8px;
+  margin-top: 10px;
+}
+
+.fo-title {
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.408px;
+  color: #0e3c6e;
+  margin-bottom: 20px;
+}
+
 .text1 {
   border-bottom: #b3aaaa 1px solid;
 }
@@ -124,13 +147,24 @@ p {
   color: #656565;
 }
 
-#download_btn {
+.download_btn {
   border: #0e3c6e 1px solid;
   color: #0e3c6e;
   font-weight: 500;
 }
 
-#join_btn2 {
+.download_btn:hover {
+  border: #0e3c6e 1px solid;
+  color: #0e3c6e;
+  font-weight: 500;
+}
+
+.join_btn2 {
+  background-color: #0e3c6e;
+  color: white;
+}
+
+.join_btn2:hover {
   background-color: #0e3c6e;
   color: white;
 }
@@ -157,10 +191,6 @@ p {
 .big-card {
   background: #f5f7f9;
   border-radius: 40px;
-}
-
-.imgae-w {
-  width: 100%;
 }
 
 .footer-box {
@@ -301,7 +331,7 @@ p {
 
 @media only screen and (max-width: 718px) {
   .aside1 {
-    gap: 4%;
+    gap: 2%;
   }
 
   .aside1 > img {

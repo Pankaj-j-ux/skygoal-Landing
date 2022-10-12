@@ -91,8 +91,10 @@
             </div>
             <button
               type="button"
-              class="btn btn-block px-3 py-1"
-              id="join_btn1"
+              class="join_btn1 btn btn-block px-3 py-1"
+              id="join_now2"
+              data-bs-toggle="modal" 
+              data-bs-target="#exampleModal"
             >
               <b> Join Now </b> <i class="bi bi-arrow-right"></i>
             </button>
@@ -380,14 +382,18 @@
                                 </p> 
                                 <button
                                     type="button"
-                                    class="btn btn-block w-100 fs-5 p-3 rounded"
-                                    id="download_btn"
+                                    class="download_btn btn btn-block w-100 fs-5 p-3 rounded"
+                                    id="Download2"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#exampleModal"
                                 ><b>Brochure </b><i class="bi bi-download"></i> 
                                 </button>
                                 <button
                                     type="button"
-                                    class="btn btn-block w-100 fs-5 p-3 mt-4 rounded"
-                                    id="join_btn2"
+                                    class="join_btn2 btn btn-block w-100 fs-5 p-3 mt-4 rounded"
+                                    id="join_now2"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#exampleModal"
                                 ><b> Join Now </b> <i class="bi bi-arrow-right"></i>
                                 </button>
                             </div>
@@ -481,26 +487,33 @@
                     
                         <div class="card mt-4">
                             <div class="card-body">
-                                <h5 class="card-title"><img class="w-25" src="./Assets/img/section7-img2.png"><span class="ms-2">Santhoshrang</span></h5>
-                                <p class="card-text" style="color: #656565">In the early stage, I have a doubted in my self. I know the very basic knowledge about UI/UX here I come before, but starting stage I got to fear is it useful or not less payment how they can give more quality knowledge than after the first stage of class I have very confidence to do the UI/UX thinks and designing knowledge i got everything. now I feel like i am UI/UX designer thanks for giving me this opportunity, but I want to learn lots of things from Shreeram.</p>
+                                <h5 class="fo-title"><span class="ms-2">Santhoshrang</span></h5>
+                                <p class="fo-text" style="color: #656565">In the early stage, I have a doubted in my self. I know the very basic knowledge about UI/UX here I come before, but starting stage I got to fear is it useful or not less payment how they can give more quality knowledge than after the first stage of class I have very confidence to do the UI/UX thinks and designing knowledge i got everything. now I feel like i am UI/UX designer thanks for giving me this opportunity, but I want to learn lots of things from Shreeram.</p>
                             </div>
                         </div>
                     
                     
                         <div class="card mt-4">
                             <div class="card-body">
-                                <h5 class="card-title"><img class="w-25" src="./Assets/img/section7-img3.png"><span class="ms-2">Kavya Shree</span></h5>
-                                <p class="card-text" style="color: #656565">I like this course a lot, and Shree Ram is teaching really well. The practical assignments he gives me make me feel more confident that I can design. I think more practical assignments should be provided. And internships are where we actually learn to be professional and good designers.</p>
+                                <h5 class="fo-title"><span class="ms-2">Kavya Shree</span></h5>
+                                <p class="fo-text" style="color: #656565">I like this course a lot, and Shree Ram is teaching really well. The practical assignments he gives me make me feel more confident that I can design. I think more practical assignments should be provided. And internships are where we actually learn to be professional and good designers.</p>
                             </div>
                         </div>
                     
                     
                         <div class="card mt-4">
                             <div class="card-body">
-                                <h5 class="card-title" ><img class="w-25" src="./Assets/img/section7-img4.png"><span class="ms-2">Ankur</span></h5>
-                                <p class="card-text" style="color: #656565">I know for sure what is UI/UX and what it takes to implement, but I am confused about what to add while making a portfolio and applying for jobs in this background. This course helped in all aspects. Overall, it is quite good and interesting.</p>
+                                <h5 class="fo-title" ><span class="ms-2">Ankur</span></h5>
+                                <p class="fo-text" style="color: #656565">I know for sure what is UI/UX and what it takes to implement, but I am confused about what to add while making a portfolio and applying for jobs in this background. This course helped in all aspects. Overall, it is quite good and interesting.</p>
                             </div>
                         </div>
+
+                        <div class="card mt-4">
+                          <div class="card-body">
+                              <h5 class="fo-title"><span class="ms-2">Binnu</span></h5>
+                              <p class="fo-text" style="color: #656565">I liked the course because it thought of me from the very basics.</p>
+                          </div>
+                      </div>
                     
                     
                 </div>
@@ -543,7 +556,7 @@
                       </h2>
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                          <strong>Ans: </strong>
+                          <strong>Ans: </strong>Yes you can pay the fee using EMI. Skygoal has partnered with Zest Money to bring an easy EMI option for its students.
                         </div>
                       </div>
                     </div>
@@ -555,7 +568,7 @@
                       </h2>
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                          <strong>Ans: </strong>
+                          <strong>Ans: </strong>Working professionals and students who want to start or switch their careers in the design field can opt for this course.
                         </div>
                       </div>
                     </div>
@@ -591,6 +604,75 @@
       style="right: 83.48px; top: 900px"
     ></div>
 
+    <!-- Model  -->
+
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+    
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    
+         
+          <div class="modal-body " id="modalsBody" style="background-color:  #fafafa   ;">
+            <div class="text-center mb-5">
+              <h3  style="font-weight: bold; ">
+                Join us now
+             </h3>
+            </div>
+         
+            
+    
+          <form name="callBack" class="needs-validation" novalidate method="post"  action="https://sheetdb.io/api/v1/djbesgz3los5v" >
+            
+            <div class=" " role="alert" id="notify">
+              
+            </div>
+            <div class="mb-4">
+              <div class="row">
+                <div class="col has-validation">
+                  <label for="exampleInputEmail1" class="form-label font-weight-bold" style="font-weight: bold;">First Name</label>
+                  <input type="text" class="form-control" id="first"  name="FirstName" placeholder="First name" required>
+                </div>
+                <div class="col">
+                  <label for="exampleInputEmail1" class="form-label font-weight-bold" style="font-weight: bold;">Last Name</label>
+                  <input type="text" class="form-control" id="last" name="LastName" placeholder="Last name" required>
+                </div>
+              </div>
+    
+            </div>
+             
+            <div class="mb-4">
+              <label for="exampleInputEmail1" class="form-label font-weight-bold" style="font-weight: bold;">Email address</label>
+              <input type="email" class="form-control" id="email" name="Email"  aria-describedby="emailHelp" placeholder="Enter your email" required>
+              
+            </div>
+            <div class="mb-4">
+              <label for="exampleInputPassword1" class="form-label font-weight-bold" style="font-weight: bold;" >Mobile number</label>
+              <input type="text" class="form-control" maxlength="10"  id="phone" name="Phone" placeholder="Enter your phone number" required>
+            </div>
+    
+            <div class="mb-4">
+              <label for="exampleInputPassword1" class="form-label font-weight-bold" style="font-weight: bold;">City</label>
+              <input type="text" class="form-control" id="city" name="City"  placeholder="Enter your ctiy" required>
+            </div>
+    
+            <div class="mb-3">
+              <button type="submit" id="buttonsDis" class="btn btn-primary" style="width:100% ;">Submit</button>
+            </div>
+            
+            
+          </form>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped" role="progressbar" aria-label="Example with label"  aria-valuemin="0" aria-valuemax="100" id="progresbar"></div>
+          </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="./Assets/js/uiux.js"></script>
      
@@ -604,7 +686,6 @@
     <!-- Dynamically adding Footer -->
     <script> 
     $(function(){
-      $("#header").load("header.html"); 
       $("#footer").load("footer.html"); 
     });
     </script>
