@@ -47,21 +47,15 @@ function toggleClock3() {
     image.style.transform = "rotate(180deg)";
   }
 }
-
-// DOWNLOAD FILE
-function downloadFile(url, fileName) {
-  fetch(url, { method: "get", mode: "no-cors", referrerPolicy: "no-referrer" })
-    .then((res) => res.blob())
-    .then((res) => {
-      const aElement = document.createElement("a");
-      aElement.setAttribute("download", fileName);
-      const href = URL.createObjectURL(res);
-      aElement.href = href;
-      aElement.setAttribute("target", "_blank");
-      aElement.click();
-      URL.revokeObjectURL(href);
-    });
+function onStartedDownload(id) {
+  console.log(`Started downloading: ${id}`);
 }
+
+function onFailed(error) {
+  console.log(`Download failed: ${error}`);
+}
+
+var progress = document.getElementById("progresbar");
 
 // CONTACT FORM
 
@@ -77,7 +71,6 @@ var openModals2 = document.getElementById("Download2");
 // POP UP THE MODAL WHEN USER ENTERS
 setTimeout(() => {
   $("#exampleModal").modal("show");
-  console.log("hello");
 }, 2000);
 
 // CHECK IF THE MODAL IS CLOSED AND POP UP AGAIN AFTER 30 seconds
@@ -86,9 +79,9 @@ $("#exampleModal").on("hide.bs.modal", function (e) {
   clearTimeout(setTimeID);
 
   //console.log(e);
-  if (canDownload) {
-    canDownload = false;
-  }
+  // if(canDownload){
+  //   canDownload = false
+  // }
 
   // do something...
   if (formPopup) {
@@ -118,8 +111,58 @@ const ShowWarn = (message) => {
 const thankYou = () => {
   modalsBody.style.backgroundColor = "#fff";
   modalsBody.innerHTML =
-    '<div class="text-center "><img src="../img/thankyou.gif" class="img-fluid" > <p class="fixed-bottom position-absolute" style="bottom:50px; font-weight:bold;padding:10px">We are soo glad that you connected with us We look forward to being a part of your career Our team will contact you soon for more details.</p></div>';
+    '<div class="text-center "><img src="../gif/thankyou.gif" class="img-fluid" > <p class="fixed-bottom position-absolute" style="bottom:50px; font-weight:bold;padding:10px">We are soo glad that you connected with us We look forward to being a part of your career Our team will contact you soon for more details.</p></div>';
 };
+
+// DOWNLOAD FILE
+function downloadFile(url, fileName) {
+  const startTime = new Date().getTime();
+
+  request = new XMLHttpRequest();
+
+  request.responseType = "blob";
+  request.open("get", url, true);
+  request.send();
+
+  request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const imageURL = window.URL.createObjectURL(this.response);
+
+      const anchor = document.createElement("a");
+      anchor.href = imageURL;
+      anchor.download = fileName;
+      document.body.appendChild(anchor);
+      anchor.click();
+    }
+  };
+
+  request.onprogress = function (e) {
+    const percent_complete = Math.floor((e.loaded / e.total) * 100);
+
+    const duration = (new Date().getTime() - startTime) / 1000;
+    const bps = e.loaded / duration;
+
+    const kbps = Math.floor(bps / 1024);
+
+    const time = (e.total - e.loaded) / bps;
+    const seconds = Math.floor(time % 60);
+    const minutes = Math.floor(time / 60);
+
+    progress.ariaValueNow = percent_complete;
+    (progress.style.width = `${percent_complete}%`),
+      (progress.textContent = `${percent_complete}%`);
+    // console.log(
+    //   `${percent_complete}% - ${kbps} Kbps - ${minutes} min ${seconds} sec remaining`
+    // );
+
+    if (percent_complete == 100) {
+      submitButton.className = "btn btn-primary disabled";
+      submitButton.innerHTML = "Downloading Please wait..";
+      thankYou();
+      canDownload = false;
+    }
+  };
+}
 
 // SHEET SCRIPT URL AND FORM DATA COLLECTION
 const scriptURL = "https://sheetdb.io/api/v1/djbesgz3los5v";
@@ -129,11 +172,13 @@ const form = document.forms["callBack"];
 openModals.addEventListener("click", () => {
   $("#exampleModal").modal("show");
   canDownload = true;
+  //console.log(buttonClick)
 });
 
 openModals2.addEventListener("click", () => {
   $("#exampleModal").modal("show");
   canDownload = true;
+  //console.log(buttonClick)
 });
 
 // LEAD FORM EVENT LISTNER HERE
@@ -189,6 +234,7 @@ form.addEventListener("submit", async (event) => {
   // TURN ON THE LOADER HERE INSIDE BUTTON
   submitButton.innerHTML =
     ' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Please Wait...';
+  submitButton.className = "btn btn-primary disabled";
 
   // SUBMIT DATA TO GOOGLE SHEET
   await fetch(scriptURL, {
@@ -196,23 +242,33 @@ form.addEventListener("submit", async (event) => {
     body: formData,
   })
     .then((response) => {
+      console.log(response);
       if (response.ok) {
         formPopup = false;
         if (canDownload) {
           console.log(canDownload);
           downloadFile(
             "../UI-UX Course Brochure (7).pdf",
-            "UI-UX Course Brochure"
+            "UI-UX-Course-Brochure"
           );
         }
-        submitButton.innerHTML = "Submit";
-        thankYou();
+        if (canDownload !== true) {
+          submitButton.innerHTML = "Submit";
+        }
+
+        if (canDownload !== true) {
+          thankYou();
+        }
+
         //window.location.replace("thanku.html")
       } else {
         ShowWarn("Something went wrong, please try again !");
       }
     })
-    .catch((error) => ShowWarn("Something went wrong, please try again !"));
+    .catch((error) => {
+      console.log(error);
+      ShowWarn("Something went wrong, please try again !");
+    });
 
   //https://script.google.com/macros/s/AKfycbxqdh19QHTJnAheLOFQlEskkcSwfmNxQEvQAozng2cbd2ftktlANV9GnSeOvviP7VmE/exec
   // handle the form data
