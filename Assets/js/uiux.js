@@ -159,6 +159,13 @@ function downloadFile(url, fileName) {
     //   `${percent_complete}% - ${kbps} Kbps - ${minutes} min ${seconds} sec remaining`
     // );
 
+    if(percent_complete == "Infinity"){
+      submitButton.className = "btn btn-primary disabled";
+      submitButton.innerHTML = "Downloading Please wait..";
+      thankYou();
+      canDownload = false;
+    }
+
     if (percent_complete == 100) {
       submitButton.className = "btn btn-primary disabled";
       submitButton.innerHTML = "Downloading Please wait..";
