@@ -247,10 +247,7 @@ form.addEventListener("submit", async (event) => {
         formPopup = false;
         if (canDownload) {
           console.log(canDownload);
-          downloadFile(
-            "../assets/UI-UX Course Brochure (7).pdf",
-            "UI-UX-Course-Brochure"
-          );
+          downloadFile("../../Assets/pdf/uiux.pdf", "UI-UX-Course-Brochure");
         }
         if (canDownload !== true) {
           submitButton.innerHTML = "Submit";
