@@ -121,6 +121,10 @@ function downloadFile(url, fileName) {
   request = new XMLHttpRequest();
 
   request.responseType = "blob";
+  request.addEventListener('progress', function(e) {
+    var percent_complete = (e.loaded / e.total)*100;
+    console.log(percent_complete);
+  });
   request.open("get", url, true);
   request.send();
 
