@@ -201,7 +201,7 @@ form.addEventListener("submit", async (event) => {
         if (canDownload) {
           console.log(canDownload);
           downloadFile(
-            "../../pdf/UI-UX Course Brochure.pdf",
+            "../UI-UX Course Brochure (7).pdf",
             "UI-UX Course Brochure"
           );
         }
