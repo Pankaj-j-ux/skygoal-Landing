@@ -111,7 +111,7 @@ const ShowWarn = (message) => {
 const thankYou = () => {
   modalsBody.style.backgroundColor = "#fff";
   modalsBody.innerHTML =
-    '<div class="text-center "><img src="../assets/gif/thankyou.gif" class="img-fluid" > <h5 class="fixed-bottom position-absolute" style="bottom:50px; font-weight:bold;padding:10px">We are soo glad that you connected with us We look forward to being a part of your career Our team will contact you soon for more details.</h5></div>';
+    '<div class="text-center "><img src="../Assets/gif/thankyou.gif" class="img-fluid" > <h5 class="fixed-bottom position-absolute" style="bottom:50px; font-weight:bold;padding:10px">We are soo glad that you connected with us We look forward to being a part of your career Our team will contact you soon for more details.</h5></div>';
 };
 
 // DOWNLOAD FILE
