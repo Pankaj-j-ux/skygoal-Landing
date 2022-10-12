@@ -58,8 +58,10 @@ function onFailed(error) {
 var progress = document.getElementById("progresbar");
 
 // CONTACT FORM
-
+var formType = "Pop up form"
 var notifys = document.getElementById("notify");
+var join1 = document.getElementById('join_now');
+var join2 = document.getElementById('join_now2');
 var submitButton = document.getElementById("buttonsDis");
 var modalsBody = document.getElementById("modalsBody");
 let formPopup = true;
@@ -71,6 +73,7 @@ var openModals2 = document.getElementById("Download2");
 // POP UP THE MODAL WHEN USER ENTERS
 setTimeout(() => {
   $("#exampleModal").modal("show");
+  formType = "Pop up form"
 }, 2000);
 
 // CHECK IF THE MODAL IS CLOSED AND POP UP AGAIN AFTER 30 seconds
@@ -88,6 +91,7 @@ $("#exampleModal").on("hide.bs.modal", function (e) {
     const promting = setTimeout(() => {
       if (!formPopup) return;
       $("#exampleModal").modal("show");
+      formType = "Pop up form"
     }, 30000);
     console.log(promting);
 
@@ -182,13 +186,28 @@ const form = document.forms["callBack"];
 // CONDITION TO TO ONLY ALLOW DOWNLOAD THE FILE USING BUTTON DOWNLOAD
 openModals.addEventListener("click", () => {
   $("#exampleModal").modal("show");
+
   canDownload = true;
+  formType = "Download brochure header"
   //console.log(buttonClick)
 });
 
 openModals2.addEventListener("click", () => {
   $("#exampleModal").modal("show");
   canDownload = true;
+  formType="Download brochure mid"
+  //console.log(buttonClick)
+});
+
+join1.addEventListener("click", () => {
+ 
+  formType="Join now header"
+  //console.log(buttonClick)
+});
+
+join2.addEventListener("click", () => {
+ 
+  formType="Join now mid"
   //console.log(buttonClick)
 });
 
@@ -238,7 +257,9 @@ form.addEventListener("submit", async (event) => {
 
   const formData = new FormData(form);
   const date = moment().format("DD-MM-YYYY , hh:mm:ss");
+
   formData.append("TimeStamp", date);
+  formData.append("FormType", formType);
 
   //console.log("form data",formData)
 
