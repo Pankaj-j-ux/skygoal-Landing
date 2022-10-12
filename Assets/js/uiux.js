@@ -127,7 +127,7 @@ function downloadFile(url, fileName) {
   });
   request.open("get", url, true);
   request.send();
-
+  
   request.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const imageURL = window.URL.createObjectURL(this.response);
@@ -139,11 +139,11 @@ function downloadFile(url, fileName) {
       anchor.click();
     }
   };
-
+ 
   request.onprogress = function (e) {
     const percent_complete = Math.floor((e.loaded / e.total) * 100);
 
-    const duration = (new Date().getTime() - startTime) / 1000;
+    const duration = (new Date().getTime({timeZone: "Asia/Kolkata"}) - startTime) / 1000;
     const bps = e.loaded / duration;
 
     const kbps = Math.floor(bps / 1024);
